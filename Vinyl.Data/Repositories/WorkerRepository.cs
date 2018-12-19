@@ -44,5 +44,11 @@ namespace Vinyl.Data.Repositories
 
             return logs;
         }
+
+        public void InsertWorker(Worker worker)
+        {
+            _vinylContext.Workers.Add(worker);
+            _vinylContext.SaveChanges();
+        }
     }
 }

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
 
 namespace Vinyl.Domain.Contracts
 {
     public class WorkerContract
     {
-        public BigInteger Id { get; set; }
+        public Int64 Id { get; set; }
 
         public string FirstName { get; set; }
 

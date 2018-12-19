@@ -26,7 +26,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\worker\insert-worker.component.ts" />
+    <None Remove="ClientApp\src\app\worker\worker.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Vinyl.Domain\Vinyl.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\worker\insert-worker.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\worker\worker.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

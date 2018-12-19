@@ -11,5 +11,6 @@ namespace Vinyl.Data.Repositories
         Worker GetWorkerById(BigInteger id);
         IEnumerable<Worker> SearchWorkers(Func<Worker, bool> q);
         IEnumerable<Log> WorkerLogsThisMonth(BigInteger workerId);
+        void InsertWorker(Worker worker);
     }
 }

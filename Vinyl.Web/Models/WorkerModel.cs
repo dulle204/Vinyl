@@ -1,9 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace Vinyl.Web.Models
 {
     public class WorkerModel
     {
+        [JsonProperty("id")]
+        public Int64 Id { get; set; }
+
         [JsonProperty("first_name")]
         public string FirstName { get; set; }
 

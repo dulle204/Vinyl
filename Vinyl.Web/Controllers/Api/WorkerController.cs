@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vinyl.Domain;
+using Vinyl.Domain.Contracts;
 using Vinyl.Web.Models;
 
 namespace Vinyl.Web.Controllers.Api
@@ -34,13 +35,30 @@ namespace Vinyl.Web.Controllers.Api
                     Position = worker.Position.ToString(),
                     FirstName = worker.FirstName,
                     LastName = worker.LastName,
-                    MonthSalary = worker.MonthSalary
+                    MonthSalary = worker.MonthSalary,
+                    Id = worker.Id
                 };
 
                 result.Add(model);
             }
 
             return Ok(result);
+        }
+
+        public ActionResult Post(WorkerModel model)
+        {
+            WorkerContract worker = new WorkerContract()
+            {
+                Position = Enum.Parse<Position>(model.Position),
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                MonthSalary = model.MonthSalary,
+                Role = Role.USER
+            };
+
+            _workersManager.InsertWorker(worker);
+
+            return Accepted();
         }
     }
 }

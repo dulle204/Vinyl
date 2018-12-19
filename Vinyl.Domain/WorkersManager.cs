@@ -5,6 +5,7 @@ using System.Text;
 using CommonServiceLocator;
 using Microsoft.AspNetCore.Http;
 using Vinyl.Data;
+using Vinyl.Data.Entities;
 using Vinyl.Domain.Contracts;
 
 namespace Vinyl.Domain
@@ -12,6 +13,7 @@ namespace Vinyl.Domain
     public interface IWorkersManager
     {
         IEnumerable<WorkerContract> GetWorkersWithSalaries();
+        void InsertWorker(WorkerContract worker);
     }
 
     public class WorkersManager : IWorkersManager
@@ -52,6 +54,20 @@ namespace Vinyl.Domain
             }
 
             return result;
+        }
+
+        public void InsertWorker(WorkerContract worker)
+        {
+            Worker workerEntity = new Worker()
+            {
+                FirstName = worker.FirstName,
+                LastName = worker.LastName,
+                Position = worker.Position.ToString(),
+                Salary = worker.MonthSalary,
+                Role = worker.Role.ToString()
+            };
+
+            _unitOfWork.WorkerRepository.InsertWorker(workerEntity);
         }
     }
 }
