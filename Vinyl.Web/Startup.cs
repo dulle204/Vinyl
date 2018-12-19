@@ -3,8 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Vinyl.Data;
+using Vinyl.Data.Repositories;
+using Vinyl.Domain;
 
 namespace Vinyl.Web
 {
@@ -20,6 +24,15 @@ namespace Vinyl.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IWorkersManager, WorkersManager>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IVinylContext, VinylContext>();
+            services.AddTransient<IWorkerRepository, WorkerRepository>();
+            services.AddTransient<ISalaryCalculator, SalaryCalculator>();
+
+            services.AddDbContext<VinylContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Vinyl")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // In production, the Angular files will be served from this directory

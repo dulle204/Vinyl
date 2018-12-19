@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinyl.Web", "Vinyl.Web\Viny
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinyl.Data", "Vinyl.Data\Vinyl.Data.csproj", "{5A30507E-F7E7-4C57-A72D-3FDA09C7898D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinyl.Domain", "Vinyl.Domain\Vinyl.Domain.csproj", "{7493BD5D-6B08-4467-81F6-101B9BA77B50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5A30507E-F7E7-4C57-A72D-3FDA09C7898D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A30507E-F7E7-4C57-A72D-3FDA09C7898D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A30507E-F7E7-4C57-A72D-3FDA09C7898D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7493BD5D-6B08-4467-81F6-101B9BA77B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7493BD5D-6B08-4467-81F6-101B9BA77B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7493BD5D-6B08-4467-81F6-101B9BA77B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7493BD5D-6B08-4467-81F6-101B9BA77B50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
